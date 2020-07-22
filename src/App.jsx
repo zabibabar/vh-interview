@@ -5,6 +5,7 @@ import {
   createMuiTheme,
 } from '@material-ui/core/styles';
 import axios from 'axios';
+import CssBaseline from '@material-ui/core/CssBaseline';
 import Backdrop from '@material-ui/core/Backdrop';
 import Container from '@material-ui/core/Container';
 import Typography from '@material-ui/core/Typography';
@@ -12,6 +13,7 @@ import Box from '@material-ui/core/Box';
 import Button from '@material-ui/core/Button';
 import CircularProgress from '@material-ui/core/CircularProgress';
 import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos';
+
 import muiTheme from './theme';
 import FilmList from './components/FilmList';
 import CharacterList from './components/CharacterList';
@@ -45,7 +47,7 @@ function App() {
     async function fetchFilms() {
       try {
         setFilms({ list: films.list, isFetching: true });
-        const response = await axios.get('http://swapi.dev/api/films/');
+        const response = await axios.get('https://swapi.dev/api/films/');
         setFilms({ list: response.data.results, isFetching: false });
       } catch (e) {
         setFilms({ list: films.list, isFetching: false });
@@ -63,9 +65,10 @@ function App() {
   };
   return (
     <ThemeProvider theme={myTheme}>
+      <CssBaseline />
       <Container>
         <img
-          src="/starwars.png"
+          src={`${process.env.PUBLIC_URL}/starwars.png`}
           className={classes.logo}
           alt="star wars logo"
         />
