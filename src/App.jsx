@@ -46,11 +46,11 @@ export default function App() {
   useEffect(() => {
     async function fetchFilms() {
       try {
-        setFilms({ list: films.list, isFetching: true });
+        setFilms({ list: [], isFetching: true });
         const response = await axios.get('https://swapi.dev/api/films/');
         setFilms({ list: response.data.results, isFetching: false });
       } catch (e) {
-        setFilms({ list: films.list, isFetching: false });
+        setFilms({ list: [], isFetching: false });
       }
     }
     fetchFilms();

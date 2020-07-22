@@ -22,14 +22,14 @@ export default function CharacterList({ charactersURL = [] }) {
   useEffect(() => {
     async function fetchCharacters() {
       try {
-        setCharacters({ list: characters.list, isFetching: true });
+        setCharacters({ list: [], isFetching: true });
         const URLs = charactersURL.map((URL) =>
           axios.get(URL.replace('http', 'https'))
         );
         const response = await axios.all(URLs);
         setCharacters({ list: response, isFetching: false });
       } catch (e) {
-        setCharacters({ list: characters.list, isFetching: false });
+        setCharacters({ list: [], isFetching: false });
       }
     }
     fetchCharacters();
