@@ -37,7 +37,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-function App() {
+export default function App() {
   const myTheme = createMuiTheme(muiTheme);
   const classes = useStyles();
   const [films, setFilms] = useState({ list: [], isFetching: false });
@@ -108,5 +108,3 @@ function App() {
     </ThemeProvider>
   );
 }
-
-export default App;
