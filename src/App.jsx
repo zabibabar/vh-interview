@@ -20,6 +20,7 @@ import CharacterList from './components/CharacterList';
 
 const useStyles = makeStyles((theme) => ({
   title: {
+    width: '100%',
     margin: theme.spacing(0, 'auto', 1, 'auto'),
     flex: '1 0 auto',
   },
